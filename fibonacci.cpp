@@ -10,13 +10,24 @@
  * ... soon
  */ 
 #include<bits/stdc++.h>
+
 using namespace std;
-int febonic(int num,int& limit){
-	cout<<limit;
+void febonic(int* previous_num,int* strt,int* limit){
+	int result=(*strt)*4+(*previous_num);
+	if( (result) <= (*limit) ){
+		cout<<result<<"\t";
+		febonic(strt,&result,limit);
+	}
 }
 int main(int args, char** argv){
 	int limit=0;
 	cin>>limit;
-	febonic(0,limit)
+	int prev=0;
+	int s=2;
+	if(limit>3){
+		cout<<"Even Number in Febonic Series=>\t0\t2\t";
+		febonic(&prev,&s,&limit);
+	}else
+		cout<<"limit is too shot";
 	return 0;
 }
